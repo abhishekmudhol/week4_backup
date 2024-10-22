@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="firstNumber" type="text" placeholder="Enter the first number"/><br><br>
+    <input id="secondNumber" type="text" placeholder="Enter the second number"/><br><br>
+    <button id="button" onclick="getSum()">ADD</button><br><br>
+    <div id="Div"></div>
+</body>
+<script>
+    let Button = document.getElementById(`button`)
+
+    async function getSum(){
+        Button.disabled = true
+        let a = document.getElementById('firstNumber').value
+        let b = document.getElementById('secondNumber').value
+
+        let response = await fetch(`https://sum-server.100xdevs.com/sum?a=${a}&b=${b}`)
+        let result = await response.text()
+        
+        let Div = document.getElementById('Div')
+        Div.innerText = `SUM OF NUMBER IS ${result} `
+        Button.disabled = false
+
+        console.log(typeof result);
+    }
+</script>
+</html>

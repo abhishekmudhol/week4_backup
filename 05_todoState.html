@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="parent"></div>
+</body>
+<script>
+    let todoState = [
+        {
+            id : 1,
+            title : 'Go to a Gym1',
+            discription : 'going Gym1 is important'
+        },
+        {
+            id : 2,
+            title : 'Go to a Gym2',
+            discription : 'going Gym2 is important'
+        }
+    ]
+
+    let parent = document.getElementById('parent')
+
+    todoState.forEach((item)=>{
+        let child1 = document.createElement('div')
+        let child2 = document.createElement('div')
+        let breakTag = document.createElement('br')
+        let container = document.createElement('div')
+
+        child1.innerHTML = item.title
+        child1.setAttribute('id' , item.id)
+
+        child2.innerHTML = item.discription
+        child2.setAttribute('id' , item.id)
+
+        container.appendChild(child1)
+        container.appendChild(child2)
+        container.appendChild(breakTag)
+        
+        parent.appendChild(container)
+    })
+</script>
+
+</html>

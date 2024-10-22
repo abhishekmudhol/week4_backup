@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="firstNumber" type="number" placeholder="Enter the first number"/><br><br>
+    <input id="secondNumber" type="number" placeholder="Enter the second number"/><br><br>
+    <button onclick="calculation()">ADD</button><br><br>
+    <div id="Div"></div>
+</body>
+<script>
+    console.log(document.querySelector('.firstNumber'));
+    function calculation(){
+        let a = document.getElementById('firstNumber').value
+        let b = document.getElementById('secondNumber').value
+        let result = parseInt(a) + parseInt(b)
+
+        document.getElementById('Div').innerHTML = `SUM OF NUMBER IS ${result}`
+    }
+</script>
+</html>

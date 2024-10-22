@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="name" type="text" placeholder="NAME OF A TODO"/> <br><br>
+    <input id="discription" type="text" placeholder="DISCRIPTION OF A TODO"/> <br><br>
+    <button onclick="addTodo()" id="addButton">ADD</button>
+    <div id="Div"></div>
+</body>
+<script>
+
+    let Id = 1
+
+    function makeDone(todoId){
+            document.getElementById(todoId).textContent = `Done`
+        }
+
+    function addTodo(){
+        let nameOfTodo = document.getElementById('name').value
+        let discription = document.getElementById('discription').value
+
+        let element1 = document.createElement('div')
+        element1.textContent = nameOfTodo 
+        let element2 = document.createElement('div')
+        element2.textContent = discription 
+        
+        let breakTag = document.createElement('br')
+
+        let Button = document.createElement('button')
+        Button.textContent = 'Mark as Done'
+        Button.setAttribute('id' , Id)
+        Button.setAttribute(`onclick` , `makeDone(${Id})`)
+
+        Id++
+
+        let Div = document.getElementById('Div')
+
+        Div.appendChild(breakTag)
+        Div.appendChild(element1)
+        Div.appendChild(element2)
+        Div.appendChild(Button)
+    }
+</script>
+</html>
